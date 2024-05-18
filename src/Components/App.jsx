@@ -1,6 +1,6 @@
 import SearchForm from "./SearchForm/SearchForm";
 import ImagesList from "./ImagesList/ImagesList";
-import getPhoto from "../api";
+import getPhoto from "./api";
 import Modal from "./Modal/Modal";
 import Button from "./Button/Button";
 import Loader from "./Loader/Loader";
