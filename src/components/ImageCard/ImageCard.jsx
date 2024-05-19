@@ -1,5 +1,5 @@
-import item from './ImagesItem.module.css'
-const ImageItem = ({ data, onClick }) => {
+import item from './ImageCard.module.css'
+const ImageCard = ({ data, onClick }) => {
     return (
         <li className={item.item}>
             <img className={item.img} src={data.urls.small} alt={data.alt_description} onClick={()=> onClick(data.urls.regular)}  />
@@ -7,4 +7,4 @@ const ImageItem = ({ data, onClick }) => {
     )
 }
 
-export default ImageItem;
+export default ImageCard;

@@ -1,8 +1,8 @@
-import SearchForm from "./SearchForm/SearchForm";
-import ImagesList from "./ImagesList/ImagesList";
+import SearchForm from "./SearchBar/SearchBar";
+import ImageGallery from './ImageGallery/ImageGallery';
+import LoadMoreBtn from './LoadMoreBtn/LoadMoreBtn';
+import ImageModal from './ImageModal/ImageModal';
 import getPhoto from "./api";
-import Modal from "./Modal/Modal";
-import Button from "./Button/Button";
 import Loader from "./Loader/Loader";
 import { useState, useEffect } from "react";
 
@@ -13,6 +13,7 @@ const App = () => {
   const [query, setQuery] = useState('')
   const [page, setPage] = useState(1);
   const [url, setUrl] = useState('');
+  const [modalVisibl, setModalVisibl] = useState(false);
 
   useEffect(() => {
     if (query.trim() === '') {
@@ -49,15 +50,21 @@ const App = () => {
 
   const openModal = url => {
     setUrl(url);
+    setModalVisibl(true);
+  }
+
+  const closeModal = () => {
+    setUrl('');
+    setModalVisibl(false);
   }
 
   return (
     <>
       {isLoading && <Loader />}
-      {images.length > 0 && <ImagesList data={images} openModal={openModal} />}
+      {images.length > 0 && <ImageGallery data={images} openModal={openModal} />}
       <SearchForm onSearch={handleSearch} />
-      {images.length >0 && !isLoading && (<Button click={handleLoadMore} />)}
-      {url && <Modal closeModal={()=> setUrl('')} url={url} />}
+      {images.length >0 && !isLoading && (<LoadMoreBtn click={handleLoadMore} />)}
+      {modalVisibl && <ImageModal closeModal={closeModal} url={url} />}
       </>
   )
 }

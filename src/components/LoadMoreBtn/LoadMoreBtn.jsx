@@ -1,5 +1,5 @@
-import button from './Button.module.css'
-const Button = ({ click }) => {
+import button from './LoadMoreBtn.module.css'
+const LoadMoreBtn = ({ click }) => {
     return (
         <div className={button.container}>
            <button className={button.btn} onClick={click} >Load more</button>
@@ -7,4 +7,4 @@ const Button = ({ click }) => {
     )
 }
 
-export default Button;
+export default LoadMoreBtn ;

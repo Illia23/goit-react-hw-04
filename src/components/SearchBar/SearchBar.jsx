@@ -1,4 +1,4 @@
-import search from './SearchForm.module.css'
+import search from './SearchBar.module.css'
 const SearchForm = ({ onSearch }) => {
 
     const handleSubmit = (evt) => {
