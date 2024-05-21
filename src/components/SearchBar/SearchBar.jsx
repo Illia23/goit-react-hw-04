@@ -1,3 +1,5 @@
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import search from './SearchBar.module.css'
 const SearchForm = ({ onSearch }) => {
 
@@ -7,7 +9,7 @@ const SearchForm = ({ onSearch }) => {
         const topic = form.elements.topic.value;
         
         if(form.elements.topic.value.trim() === "") {
-			alert("Please enter search term!")
+			toast.error("Please enter search term!")
 			return;
         }
         
@@ -22,6 +24,7 @@ const SearchForm = ({ onSearch }) => {
             <form className={search.form}  onSubmit={handleSubmit}>
                 <input className={search.input} type="text" name="topic" placeholder="Search photos..." />
                 <button className={search.fromBtn} type="submit">Search</button>
+                <ToastContainer />
             </form>
         </header>
         

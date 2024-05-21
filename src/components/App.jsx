@@ -4,6 +4,7 @@ import LoadMoreBtn from './LoadMoreBtn/LoadMoreBtn';
 import ImageModal from './ImageModal/ImageModal';
 import getPhoto from "./api";
 import Loader from "./Loader/Loader";
+import ErrorMessag from "./ErrorMessage/ErrorMessag";
 import { useState, useEffect } from "react";
 
 const App = () => {
@@ -60,6 +61,7 @@ const App = () => {
 
   return (
     <>
+      {error && <ErrorMessag />}
       {isLoading && <Loader />}
       {images.length > 0 && <ImageGallery data={images} openModal={openModal} />}
       <SearchForm onSearch={handleSearch} />
