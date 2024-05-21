@@ -23,7 +23,7 @@ const SearchForm = ({ onSearch }) => {
         <header className={search.header}>
             <form className={search.form}  onSubmit={handleSubmit}>
                 <input className={search.input} type="text" name="topic" placeholder="Search photos..." />
-                <button className={search.fromBtn} type="submit">Search</button>
+                <button className={search.formBtn} type="submit">Search</button>
                 <ToastContainer />
             </form>
         </header>

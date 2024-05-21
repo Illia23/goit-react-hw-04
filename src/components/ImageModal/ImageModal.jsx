@@ -13,16 +13,22 @@ const ImageModal = ({ closeModal, url }) => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [closeModal]);
 
+  const handleClickOutside = (e) => {
+    if (e.target === e.currentTarget) {
+      closeModal();
+    }
+  };
+
   return (
     <ReactModal
-      isOpen={true} 
-      onRequestClose={closeModal} 
-      contentLabel="Image Modal" 
-      className={modalStyles.container} 
+      isOpen={true}
+      onRequestClose={closeModal}
+      contentLabel="Image Modal"
+      className={modalStyles.container}
       overlayClassName={modalStyles.overlay}
-      shouldCloseOnOverlayClick={true} // Додаємо цю властивість
+      onClick={handleClickOutside} 
     >
-        <img className={modalStyles.img} src={url} alt="modal_img" />
+      <img className={modalStyles.img} src={url} alt="modal_img" />
     </ReactModal>
   );
 };

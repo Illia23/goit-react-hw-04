@@ -1,5 +1,5 @@
 import error from './ErrorMessage.module.css';
-const ErrorMessag = () => {
+const ErrorMessage = () => {
   return (
       <div className={error.container}>
           <p className={error.text}>Whoops, something went wrong! Please try reloading this page!</p>
@@ -7,4 +7,4 @@ const ErrorMessag = () => {
   )
 }
 
-export default ErrorMessag
+export default ErrorMessage;
